@@ -1,4 +1,6 @@
+import { CurrencyPipe } from '@angular/common';
 import { Component } from '@angular/core';
+import { CoinService } from './service/coin.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'crypto-checker';
+  selectedCurrency : string = "INR";
+  constructor(private coinService : CoinService){
+
+  }
+  sendCurrency(event:string){
+    console.log(event);
+    this.coinService.setCurrency(event);
+  }
 }
